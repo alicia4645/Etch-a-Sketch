@@ -1,16 +1,19 @@
 const container = document.querySelector("#container")
 
-const gridSize = document.querySelector("#size");
+const gridSize = document.querySelector("#size")
+
+const gridColour = document.querySelector("#colour")
+let colour = "black"
 
 function createGrids(size){
     while (container.firstChild) {
         container.firstChild.remove()
     }
 
-    let width = container.clientWidth / size;
-    let height = container.clientHeight / size;
+    let width = container.clientWidth / size
+    let height = container.clientHeight / size
     let gridSize = size*size
-    
+
     for(let i=0; i<gridSize; i++){
         const grid = document.createElement("div")
         grid.classList.add("grid")
@@ -21,7 +24,7 @@ function createGrids(size){
 
     for(const grid of container.children){
         grid.addEventListener('mouseenter', () => {
-            grid.style.backgroundColor = "purple"
+            grid.style.backgroundColor = colour
             console.log(container.clientWidth)
         })
     }
@@ -30,9 +33,13 @@ function createGrids(size){
 
 createGrids(16);
 
-
 gridSize.addEventListener('keypress' , (event) => {
     if(event.key === "Enter"){
         createGrids(gridSize.value)
     }
 })
+
+gridColour.addEventListener('input', () => {
+    colour = gridColour.value
+})
+
