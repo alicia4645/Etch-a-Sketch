@@ -29,7 +29,6 @@ function createGrids(size){
     for(const grid of container.children){
         grid.addEventListener('mouseenter', () => {
             grid.style.backgroundColor = colour
-            console.log(container.clientWidth)
         })
     }
     
