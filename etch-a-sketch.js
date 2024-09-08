@@ -5,6 +5,8 @@ const gridSize = document.querySelector("#size")
 const gridColour = document.querySelector("#colour")
 let colour = "black"
 
+const erase = document.querySelector("#erase")
+
 function createGrids(size){
     while (container.firstChild) {
         container.firstChild.remove()
@@ -43,3 +45,6 @@ gridColour.addEventListener('input', () => {
     colour = gridColour.value
 })
 
+erase.addEventListener('click', () => {
+    colour = "white";
+})
